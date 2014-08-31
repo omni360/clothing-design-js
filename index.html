@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Clothing Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/fabric.js"></script>
+	<script type="text/javascript" src="js/tshirtEditor.js"></script>
+	<script type="text/javascript" src="js/jquery.miniColors.min.js"></script>
+	
+    <link type="text/css" rel="stylesheet" href="css/jquery.miniColors.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+	 <script type="text/javascript">
+	 </script>
+  </head>
+
+  <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+    <div class="container">
+		<section id="typography">
+		  <div class="page-header">
+		  </div>
+		
+		  <!-- Headings & Paragraph Copy -->
+		  <div class="row">			
+		    <div class="span3">
+		    	
+		    	<div class="tabbable"> <!-- Only required for left/right tabs -->
+				  <ul class="nav nav-tabs">
+				  	<li class="active"><a href="#tab1" data-toggle="tab">Options</a></li>				    
+				    <li><a href="#tab2" data-toggle="tab">Text</a></li>
+				  </ul>
+				  <div class="tab-content">
+				     <div class="tab-pane active" id="tab1">
+				     	<div class="well">
+					      	<h3>Styles</h3>
+						      	<select id="shirtType">                        
+				                    <option value="1" selected="selected">Short Sleeve Shirts</option>
+				                    <option value="2">Long Sleeve Shirts</option>                       
+				                    <option value="3">Hoodies</option>                    
+				                    <option value="4">Tank tops</option>
+								</select>											
+					      </div>
+					      <!-- Colours -->
+					      <div class="well">
+							<ul class="nav">
+								<li class="color-preview" title="White" style="background-color:#ffffff;"></li>
+								<li class="color-preview" title="Dark Heather" style="background-color:#616161;"></li>
+								<li class="color-preview" title="Gray" style="background-color:#f0f0f0;"></li>
+								<li class="color-preview" title="Charcoal" style="background-color:#5b5b5b;"></li>
+								<li class="color-preview" title="Black" style="background-color:#222222;"></li>
+								<li class="color-preview" title="Heather Orange" style="background-color:#fc8d74;"></li>
+								<li class="color-preview" title="Heather Dark Chocolate" style="background-color:#432d26;"></li>
+								<li class="color-preview" title="Salmon" style="background-color:#eead91;"></li>
+								<li class="color-preview" title="Chesnut" style="background-color:#806355;"></li>
+								<li class="color-preview" title="Dark Chocolate" style="background-color:#382d21;"></li>
+								<li class="color-preview" title="Citrus Yellow" style="background-color:#faef93;"></li>
+								<li class="color-preview" title="Avocado" style="background-color:#aeba5e;"></li>
+								<li class="color-preview" title="Kiwi" style="background-color:#8aa140;"></li>
+								<li class="color-preview" title="Irish Green" style="background-color:#1f6522;"></li>
+								<li class="color-preview" title="Scrub Green" style="background-color:#13afa2;"></li>
+								<li class="color-preview" title="Teal Ice" style="background-color:#b8d5d7;"></li>
+								<li class="color-preview" title="Heather Sapphire" style="background-color:#15aeda;"></li>
+								<li class="color-preview" title="Sky" style="background-color:#a5def8;"></li>
+								<li class="color-preview" title="Antique Sapphire" style="background-color:#0f77c0;"></li>
+								<li class="color-preview" title="Heather Navy" style="background-color:#3469b7;"></li>							
+								<li class="color-preview" title="Cherry Red" style="background-color:#c50404;"></li>
+							</ul>
+						</div>			      
+				     </div>				   
+				    <div class="tab-pane" id="tab2">
+				    	<div class="well">
+				    		<div class="input-append">
+							  <input class="span2" id="text-string" type="text" placeholder="add text here..."><button id="add-text" class="btn" title="Add text"><i class="icon-share-alt"></i></button>
+							  <hr>
+							</div>
+							<!-- Avatar List -->
+							<div id="avatarlist">
+								<img style="cursor:pointer;" class="img-polaroid" src="img/alpha_phi.png">
+								<img style="cursor:pointer;" class="img-polaroid" src="img/harvard.png">
+				          		<img style="cursor:pointer;" class="img-polaroid" src="img/toronto.jpg">
+				          		<img style="cursor:pointer;" class="img-polaroid" src="img/princeton.jpg">
+				          		<img style="cursor:pointer;" class="img-polaroid" src="img/waterloo.png">
+				          		<img style="cursor:pointer;" class="img-polaroid" src="img/alpha_psi.jpg">
+				                <!-- Avatar End -->
+							</div>				    		
+				    	</div>				      
+				    </div>
+				  </div>
+				</div>				
+		    </div>		
+		    <div class="span6">		    
+		    		<div align="center" style="min-height: 32px;">
+		    			<div class="clearfix">
+							<div class="btn-group inline pull-left" id="texteditor" style="display:none">						  
+								<button id="font-family" class="btn dropdown-toggle" data-toggle="dropdown" title="Font Style"><i class="icon-font" style="width:19px;height:19px;"></i></button>
+								<!-- Fonts -->            
+							    <ul class="dropdown-menu" role="menu" aria-labelledby="font-family-X">
+								    <li><a tabindex="-1" href="#" onclick="setFont('Arial');" class="Arial">Arial</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Helvetica');" class="Helvetica">Helvetica</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Myriad Pro');" class="MyriadPro">Myriad Pro</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Delicious');" class="Delicious">Delicious</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Verdana');" class="Verdana">Verdana</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Georgia');" class="Georgia">Georgia</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Courier');" class="Courier">Courier</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Comic Sans MS');" class="ComicSansMS">Comic Sans MS</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Impact');" class="Impact">Impact</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Monaco');" class="Monaco">Monaco</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Optima');" class="Optima">Optima</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Hoefler Text');" class="Hoefler Text">Hoefler Text</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Plaster');" class="Plaster">Plaster</a></li>
+								    <li><a tabindex="-1" href="#" onclick="setFont('Engagement');" class="Engagement">Engagement</a></li>
+				                </ul>
+							    <button id="text-bold" class="btn" data-original-title="Bold"><img src="img/font_bold.png" height="" width=""></button>
+							    <button id="text-italic" class="btn" data-original-title="Italic"><img src="img/font_italic.png" height="" width=""></button>
+							    <button id="text-strike" class="btn" title="Strike" style=""><img src="img/font_strikethrough.png" height="" width=""></button>
+							 	<button id="text-underline" class="btn" title="Underline" style=""><img src="img/font_underline.png"></button>
+							 	<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Color"><input type="hidden" id="text-fontcolor" class="color-picker" size="7" value="#000000"></a>
+						 		<a class="btn" href="#" rel="tooltip" data-placement="top" data-original-title="Font Border Color"><input type="hidden" id="text-strokecolor" class="color-picker" size="7" value="#000000"></a>
+								  <!--- Background <input type="hidden" id="text-bgcolor" class="color-picker" size="7" value="#ffffff"> --->
+							</div>							  
+							<div class="pull-right" align="" id="imageeditor" style="display:none">
+							  <div class="btn-group">										      
+							      <button class="btn" id="bring-to-front" title="Bring to Front"><i class="icon-fast-backward rotate" style="height:19px;"></i></button>
+							      <button class="btn" id="send-to-back" title="Send to Back"><i class="icon-fast-forward rotate" style="height:19px;"></i></button>
+							      <button id="flip" type="button" class="btn" title="Show Back View"><i class="icon-retweet" style="height:19px;"></i></button>
+							      <button id="remove-selected" class="btn" title="Delete selected item"><i class="icon-trash" style="height:19px;"></i></button>
+							  </div>
+							</div>			  
+						</div>												
+					</div>					  		
+					<!-- EDITOR -->					
+					<div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
+						<img id="tshirtFacing" src="img/crew_front.png"></img>
+						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					
+							<canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
+						</div>
+					</div>
+
+				
+<!--					<div id="shirtBack" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255); display:none;">-->
+<!--						<img src="img/crew_back.png"></img>-->
+<!--						<div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">					-->
+<!--							<canvas id="backCanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>-->
+<!--						</div>-->
+<!--					</div>						-->
+								
+				<!--	/EDITOR		-->
+		    </div>
+		
+		    <div class="span3">
+		      <div class="well">
+		      	<h3>Total Prices</h3>
+			      <p>
+			      	<table class="table">
+			      		<tr>
+			      			<td>Short Sleeve</td>
+			      			<td align="right">$7.99</td>
+			      		</tr>
+			      		<tr>
+			      			<td>Front Design</td>
+			      			<td align="right">$2.99</td>
+			      		</tr>
+			      		<tr>
+			      			<td>Back Design</td>
+			      			<td align="right">$2.99</td>
+			      		</tr>
+			      		<tr>
+			      			<td><strong>Total</strong></td>
+			      			<td align="right"><strong>$13.97</strong></td>
+			      		</tr>
+			      	</table>			
+			      </p>
+					<button type="button" class="btn btn-large btn-block btn-success" name="addToTheBag" id="addToTheBag">Add to bag <i class="icon-briefcase icon-white"></i></button>
+		      </div>		     
+		      		<button type="button" class="btn btn-primary">Save</button>
+		      		<button type="button" class="btn btn-success">Order it!</button>
+		      		<br>
+		      		<br>	
+		      		<a  data-toggle="modal" href = "#form-content"/>Contact Manager</a>
+ 		       		   <br>
+		      		<br>
+		      		<img src = "img/zoomin.png" id = "zoomIn">
+		      		<img src = "img/zoomout.png" id = "zoomOut">
+		      		 
+		      		<div class="container">
+		<div id="form-content" class="modal hide fade in" style="display: none;">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>Contact Manager</h3>
+			</div>
+			<div class="modal-body">
+				<form class="contact" name="contact">
+					<label class="label" for="name">Your Name</label><br>
+					<input type="text" name="name" class="input-xlarge"><br>
+					<label class="label" for="email">Your E-mail</label><br>
+					<input type="email" name="email" class="input-xlarge"><br>
+					<label class="label" for="message">Enter a Message</label><br>
+					<textarea name="message" class="input-xlarge"></textarea>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-success" data-dismiss="modal">Send</a>
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+			</div>
+		</div>
+	</div>
+			</div>	  
+		    </div>
+		
+		  </div>
+		
+		</section>
+    </div><!-- container -->
+    
+   <!-- javascript -->
+    <script src="js/bootstrap.min.js"></script>    
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35639689-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  })();
+
+</script>
+
+  </body>
+</html>
