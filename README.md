@@ -1,1 +1,1 @@
-Clothing Design Website made in JS
+Clothing Design Website made in JS. There are still a few bugs.
